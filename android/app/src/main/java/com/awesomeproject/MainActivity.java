@@ -1,4 +1,6 @@
-package com.awesomeproject;
+package com.awesomeproject.test;
+import android.os.Bundle;
+import com.zoontek.rnbootsplash.RNBootSplash;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
@@ -14,6 +16,12 @@ public class MainActivity extends ReactActivity {
   @Override
   protected String getMainComponentName() {
     return "AwesomeProject";
+  }
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    RNBootSplash.init(this, R.style.BootTheme); // ⬅️ initialize the splash screen
+    super.onCreate(savedInstanceState); // super.onCreate(null) with react-native-screens
   }
 
   /**
