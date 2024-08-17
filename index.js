@@ -23,7 +23,6 @@ notifee.onBackgroundEvent(async ({ type, detail }) => {
 });
 
 let MyHeadlessTask = async (event) => {
-    // Get task id from event {}:
     let taskId = event.taskId;
     let isTimeout = event.timeout;  // <-- true when your background-time has expired.
     if (isTimeout) {
@@ -34,8 +33,6 @@ let MyHeadlessTask = async (event) => {
       return;
     }
     console.log('[BackgroundFetch HeadlessTask] start: ', taskId);
-    //await scheduleNotification(list);
-    
     try {
         const jsonValue = await AsyncStorage.getItem('persist:listData');
         if (jsonValue != null) {
@@ -61,12 +58,10 @@ let MyHeadlessTask = async (event) => {
     } catch (error) {
         console.log('Error retrieving listData from AsyncStorage:', error);
     }
-
     BackgroundFetch.finish(taskId);
   }
-  
+
 // Register your BackgroundFetch HeadlessTask
 BackgroundFetch.registerHeadlessTask(MyHeadlessTask);
-//AppRegistry.registerHeadlessTask('BackgroundFetch', () => MyHeadlessTask);
 
 AppRegistry.registerComponent(appName, () => App);
