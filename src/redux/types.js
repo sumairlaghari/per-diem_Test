@@ -12,6 +12,4 @@ export default {
   AddToList: 'AddToList',
   RemoveFromList: 'RemoveFromList',
   UpdateList: 'UpdateList',
-  OnBoardOn: 'OnBoardOn',
-  OnBoardOff: 'OnBoardOff',
 };

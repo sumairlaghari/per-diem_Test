@@ -6,7 +6,6 @@ import globalLoaderReducer from './globalLoaderReducer';
 import statusBarColor from './statusBarColor';
 import darkModeReducer from './darkModeReducer';
 import languageModeReducer from './languageModeReducer';
-import onBoardingReducer from './onBoardingReducer';
 import listReducer from './listReducer';
 
 const persistConfig1 = {
@@ -18,11 +17,6 @@ const persistConfig2 = {
   key: 'themeMode',
   storage: AsyncStorage,
   whitelist: ['state'],
-};
-const persistConfig3 = {
-  key: 'onBoard',
-  storage: AsyncStorage,
-  whitelist: ['onBoardState'],
 };
 const persistConfig4 = {
   key: 'languageMode',
@@ -39,7 +33,6 @@ export const store = configureStore({
   reducer: {
     userData: persistReducer(persistConfig1, AuthReducer),
     themeMode: persistReducer(persistConfig2, darkModeReducer),
-    onBoarding : persistReducer(persistConfig3, onBoardingReducer),
     languageMode: persistReducer(persistConfig4, languageModeReducer),
     listData: persistReducer(persistConfig5, listReducer),
     loader: globalLoaderReducer,

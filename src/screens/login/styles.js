@@ -19,25 +19,5 @@ const getStyles = colors => StyleSheet.create({
     marginVertical:GlobalImports.hp2(2),
     marginLeft:GlobalImports.wp2(4),
   },
-  inputBox:{
-    flex: 1,
-    color:'white',
-    paddingHorizontal: GlobalImports.wp2(2),
-    fontFamily:GlobalImports.fonts.medium,
-  },
-  loginButton:{
-    backgroundColor:colors.button,
-    width:GlobalImports.wp2(90),
-    height:GlobalImports.hp2(6),
-    borderRadius:GlobalImports.wp2(2),
-    alignItems:'center',
-    justifyContent:'center',
-    alignSelf:'center',
-    marginVertical:GlobalImports.hp2(1),
-  },
-  buttonText:{
-    fontFamily:GlobalImports.fonts.bold,
-    color:colors.buttonText,
-  },
 });
 export default getStyles;

@@ -2,7 +2,7 @@ import React from 'react';
 import { GlobalImports } from '../config/globalImports';
 import {SkypeIndicator} from 'react-native-indicators';
 
-export default function GlobalLoader(props) {
+export default function GlobalLoader() {
   return (
     <SkypeIndicator
       style={{
