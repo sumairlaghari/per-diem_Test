@@ -6,5 +6,6 @@ export const AuthRoutes = [
 ]
 
 export const UnAuthRoutes = [
-    {name:'login',component:Login},
+    {name:'home',component:Home},
+    //{name:'login',component:Login},
 ]
