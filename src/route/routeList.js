@@ -1,4 +1,5 @@
 import Login from "../screens/login"
+import Signup from "../screens/signup"
 import Home from "../screens/home"
 
 export const AuthRoutes = [
@@ -6,6 +7,6 @@ export const AuthRoutes = [
 ]
 
 export const UnAuthRoutes = [
-    {name:'home',component:Home},
-    //{name:'login',component:Login},
+    {name:'login',component:Login},
+    {name:'signup',component:Signup},
 ]

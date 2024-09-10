@@ -12,7 +12,8 @@ export const errorHandler = err => {
 
 const API = create({
   baseURL:API_BASED_URL,
-  timeout: 40000
+  timeout: 40000,
+  headers: { 'Content-Type': 'application/json' }
 });
 
 export const getRequest = async (endpoint,token,param) =>{
@@ -31,18 +32,31 @@ export const getRequest = async (endpoint,token,param) =>{
     }
 };
 
+// export const postRequest = async (endpoint,body,token) =>{
+//   const response = await API.post(`${API_BASED_URL}${endpoint}`,body,{
+//     headers: {
+//       'Content-Type': 'application/json',
+//       //Authorization:` Bearer ${token}`,
+//     },
+//   });
+//   console.log(response)
+//     if (response.ok) {
+//       return response;
+//     }else{
+//       response.data !== null && errorMessage(errorHandler(response))
+//       return null
+//     }
+// };
+
 export const postRequest = async (endpoint,body,token) =>{
-  const response = await API.post(`${API_BASED_URL}${endpoint}`,body,{
-    headers: {
-      'Content-Type': 'application/json',
-      //Authorization:` Bearer ${token}`,
-    },
-  });
-  //console.log(response)
+
+    const response = await API.post(`${API_BASED_URL}${endpoint}`, body);
+    console.log(response)
+
     if (response.ok) {
+      console.log('Login successful:', response.data);
       return response;
     }else{
-      response.data !== null && errorMessage(errorHandler(response))
       return null
     }
 };

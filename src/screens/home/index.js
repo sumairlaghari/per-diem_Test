@@ -11,6 +11,7 @@ import {
   Keyboard,
 } from 'react-native';
 import React, {useState, useEffect, useCallback, useMemo} from 'react';
+import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import {GlobalImports} from '../../config/globalImports';
 import getStyles from './styles';
 import ItemComp from './itemComp';
@@ -19,6 +20,9 @@ import ModalComp from './modalComp';
 
 const Home = props => {
   const styles = getStyles();
+
+  const {userData,token} = GlobalImports.useSelector(state => state?.userData);
+  const dispatch = GlobalImports.useDispatch();
 
   const [listData, setListData] = useState(jsonData);
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -93,6 +97,18 @@ const Home = props => {
     }
   };
 
+  const onLogout = async () => {
+    if(userData?.socialLogin===true){
+      try {
+        await GoogleSignin.revokeAccess();
+        await GoogleSignin.signOut();
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    dispatch({type:GlobalImports.types.Logout})    
+}
+
   return (
     <View style={styles.container}>
       <SafeAreaView></SafeAreaView>
@@ -103,6 +119,11 @@ const Home = props => {
             onPress={() => openModalForNewData()}
             style={styles.buttonStyle}>
             <Text style={styles.buttonText}>{'Add'}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={onLogout}
+            style={styles.buttonStyle}>
+            <Text style={styles.buttonText}>{'Logout'}</Text>
           </TouchableOpacity>
         </View>
 
