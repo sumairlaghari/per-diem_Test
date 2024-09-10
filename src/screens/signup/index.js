@@ -28,7 +28,6 @@ const onSignup = async () =>{
     if(pass == confirmPass){
         dispatch({type: GlobalImports.types.LoaderOn})
         const response = await postRequest(SignupUrl,{email:email,password:pass, confirmPassword: confirmPass})
-        //const response = await postRequest(SignupUrl, JSON.parse(JSON.stringify({ email: email, password: pass, confirmPassword:confirmPass })));
         if(response !==null){
             dispatch({type: GlobalImports.types.LoaderOff})
             dispatch({
@@ -38,7 +37,7 @@ const onSignup = async () =>{
             GlobalImports.successMessage('Signup Success')
         }else{
           dispatch({type: GlobalImports.types.LoaderOff})
-          GlobalImports.errorMessage('Signup failed please try again')
+          //GlobalImports.errorMessage('Signup failed please try again')
         }      
     }else{
         GlobalImports.errorMessage('confirm password not matched');

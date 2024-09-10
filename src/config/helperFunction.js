@@ -57,6 +57,7 @@ export const postRequest = async (endpoint,body,token) =>{
       console.log('Login successful:', response.data);
       return response;
     }else{
+      response.data !== null && errorMessage(response.data.message)
       return null
     }
 };

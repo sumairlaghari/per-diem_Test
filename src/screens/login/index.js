@@ -33,7 +33,6 @@ const loginUser = async () =>{
   if (pass != '' && email != '') {
     dispatch({type: GlobalImports.types.LoaderOn})
     const response = await postRequest(loginUrl,{email:email,password:pass})
-    //const response = await postRequest(loginUrl, JSON.parse(JSON.stringify({ email: email, password: pass })));
     if(response !==null){
         dispatch({type: GlobalImports.types.LoaderOff})
         dispatch({
@@ -43,7 +42,7 @@ const loginUser = async () =>{
         GlobalImports.successMessage('Login Success')
     }else{
       dispatch({type: GlobalImports.types.LoaderOff})
-      GlobalImports.errorMessage('Login failed please try again')
+      //GlobalImports.errorMessage('Login failed please try again')
     }      
   }
   else {
