@@ -31,11 +31,15 @@ const getStyles = () => {
         justifyContent:'center',
     },
     coinStyles: {
-        width: GlobalImports.wp2(66),
-        height: GlobalImports.wp2(66),
-        borderRadius:GlobalImports.wp2(100),
-        borderWidth:1,
-        borderColor:'white',
+        width: GlobalImports.wp2(60),
+        height: GlobalImports.wp2(60),
+        borderRadius: GlobalImports.wp2(100),
+        //backgroundColor:'red',
+    },
+    sprayImage: {
+        position: 'absolute',
+        width: GlobalImports.wp2(20),
+        height: GlobalImports.wp2(20),
     },
   });
 };
